@@ -17,20 +17,20 @@ namespace laborator_1
             //Exercitiul2 exercitiul2 = new Exercitiul2();
             //Console.WriteLine(exercitiul2.isLeapYear());
 
-            //Exercitiul5 exercitiul5 = new Exercitiul5();
-            //int pret, tva;
-            //while (true)
-            //{
-            //    Console.WriteLine("Pretul= ");
-            //    pret = Convert.ToInt16(Console.ReadLine());
-            //    Console.WriteLine("TVA= ");
-            //    tva = Convert.ToInt16(Console.ReadLine());
-            //    Console.WriteLine("Pretul {0}, TVA {1}, pretul cu TVA {2}", pret, tva, exercitiul5.calculTva(pret, tva));
-            //    Console.ReadKey();
-            //}
+            Exercitiul5 exercitiul5 = new Exercitiul5();
+            int pret, tva;
+            while (true)
+            {
+                Console.WriteLine("Pretul= ");
+                pret = Convert.ToInt16(Console.ReadLine());
+                Console.WriteLine("TVA= ");
+                tva = Convert.ToInt16(Console.ReadLine());
+                Console.WriteLine("Pretul {0}, TVA {1}, pretul cu TVA {2}", pret, tva, exercitiul5.calculTva(pret, tva));
+                Console.ReadKey();
+            }
 
 
         }
-            
+
     }
 }
