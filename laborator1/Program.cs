@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,26 @@ namespace laborator_1
             //    Console.ReadKey();
             //}
 
+            // Temp medie
+            int zile;
+            float[] temperaturi;
+            Exercitiul7 exercitiul7 = new Exercitiul7();
+            Console.WriteLine("Nr. zile: ");
+            zile = Convert.ToInt16(Console.ReadLine());
+            temperaturi = new float[zile];
+            for (int i = 0; i < zile; i++) {
+                Console.WriteLine("Temp: scrie cu '.' de ex. 10.5");
+                string input = Console.ReadLine();
+                float temperatura = float.Parse(input, CultureInfo.InvariantCulture);
+                temperaturi[i] = temperatura;
+            }
+            Console.WriteLine("\n");
+            //foreach (int i in temperaturi)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            Console.WriteLine(exercitiul7.tempMedie(temperaturi));
+            Console.ReadKey();
 
         }
 
