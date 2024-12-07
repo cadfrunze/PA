@@ -30,7 +30,7 @@ namespace laborator_1
             //    Console.ReadKey();
             //}
 
-            // Temp medie
+            // Temp medie + max/min temperaturi 
             int zile;
             float[] temperaturi;
             Exercitiul7 exercitiul7 = new Exercitiul7();
@@ -44,11 +44,13 @@ namespace laborator_1
                 temperaturi[i] = temperatura;
             }
             Console.WriteLine("\n");
-            //foreach (int i in temperaturi)
-            //{
-            //    Console.WriteLine(i);
-            //}
-            Console.WriteLine(exercitiul7.tempMedie(temperaturi));
+            //Console.WriteLine("Temperatura medie este: {0}", exercitiul7.tempMedie(temperaturi));
+            string mintemp = exercitiul7.TempMinMax("minim", temperaturi); //maxim sau minim
+            Console.WriteLine(mintemp);
+            Console.WriteLine("\n");
+            string maxtemp = exercitiul7.TempMinMax("maxim", temperaturi);
+            Console.WriteLine(maxtemp);
+
             Console.ReadKey();
 
         }
