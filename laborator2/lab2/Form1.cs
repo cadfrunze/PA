@@ -12,9 +12,17 @@ namespace lab2
 {
     public partial class Form1 : Form
     {
+        public int contor = 0;
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnClick(object sender, EventArgs e)
+        {
+            contor++;
+            labelTxt.Text = Convert.ToString("Ai apasat de " + contor + " ori");
+
         }
     }
 }
