@@ -16,5 +16,11 @@ namespace ticketing_project
         {
             InitializeComponent();
         }
+
+        private void clickNext(object sender, EventArgs e)
+        {
+            Console.WriteLine($"{numeTfn.Text} {prenumeTfn.Text} {cnpTfn.Text} {emailTfn.Text} {telefonTfn.Text}");
+            
+        }
     }
 }
