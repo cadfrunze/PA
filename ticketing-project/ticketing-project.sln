@@ -5,8 +5,6 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ticketing-project", "ticketing-project.csproj", "{315A1CAD-E707-4356-B23F-A79B1DD60214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ticketing-project.data", "..\ticketing-project.data\ticketing-project.data.csproj", "{0121AC36-7853-4FA6-BA21-52116D596FE4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{315A1CAD-E707-4356-B23F-A79B1DD60214}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{315A1CAD-E707-4356-B23F-A79B1DD60214}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{315A1CAD-E707-4356-B23F-A79B1DD60214}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0121AC36-7853-4FA6-BA21-52116D596FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0121AC36-7853-4FA6-BA21-52116D596FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0121AC36-7853-4FA6-BA21-52116D596FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0121AC36-7853-4FA6-BA21-52116D596FE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
