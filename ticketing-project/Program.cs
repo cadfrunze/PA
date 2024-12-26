@@ -15,12 +15,14 @@ namespace ticketing_project
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            dbAcess dbAcess = new dbAcess();
-            dbAcess.Testconn();
             
+
+
+
         }
     }
 }

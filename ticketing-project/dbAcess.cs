@@ -8,19 +8,32 @@ using System.Windows.Forms;
 
 namespace ticketing_project
 {   
-    internal class dbAcess
+    internal class DbAcess
     {
         private const string connectionString =
-            "Data Source=DESKTOP-H2RI6NV\\SQLEXPRESS;Initial Catalog=testing;Integrated Security=True";
+            "Data Source=DESKTOP-H2RI6NV\\SQLEXPRESS;Initial Catalog=spectacol;Integrated Security=True";
 
-        public bool Testconn()
+        //public DbAcess()
+        //{
+        //    Console.WriteLine(Testconn());
+        //}
+        public void Regis(Dictionary<string, string> UserFinal)
+        {
+            foreach (var detail in UserFinal) { 
+                Console.WriteLine($"keya {detail.Key} || valoarea {detail.Value}");
+            }
+        }
+
+
+
+        bool Testconn()
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    Console.WriteLine("succes");
+                    conn.Close();
                     return true;
                 }
             }
@@ -29,6 +42,7 @@ namespace ticketing_project
                 Console.WriteLine($"{ex.Message}");
                 return false;
             }
+            
         }
     }
 }

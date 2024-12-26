@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ticketing_project
 {
     public partial class Form1 : Form
     {
+        private User user = new User();
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +21,9 @@ namespace ticketing_project
 
         private void clickNext(object sender, EventArgs e)
         {
-            Console.WriteLine($"{numeTfn.Text} {prenumeTfn.Text} {cnpTfn.Text} {emailTfn.Text} {telefonTfn.Text}");
+            user.Name = numeTfn.Text.ToLower();
+            user.Prenom = prenumeTfn.Text.ToLower();
+            user.Register();
             
         }
     }
