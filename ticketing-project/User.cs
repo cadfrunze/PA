@@ -49,7 +49,7 @@ namespace ticketing_project
             set { _email = value; }
         }
         // final getters & setters
-        string GenerareSerie()
+        string GenerareTicket()
         {
             string ALFABET = "QWERTYUIOPASDFGHJKLZXCVBNM";
             string final = "";
@@ -104,7 +104,7 @@ namespace ticketing_project
         {
             regUser["nume"] = _name;
             regUser["prenume"] = _prenume;
-            _serieTicket = GenerareSerie();
+            _serieTicket = GenerareTicket();
             //dbAcess.Regis(regUser);
         }
     }

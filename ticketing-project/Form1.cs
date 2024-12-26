@@ -23,6 +23,9 @@ namespace ticketing_project
         {
             user.Name = numeTfn.Text.ToLower();
             user.Prenom = prenumeTfn.Text.ToLower();
+            user.Cnp = cnpTfn.Text;
+            user.Email = emailTfn.Text.ToLower();
+            user.Telefon = telefonTfn.Text;
             user.Register();
             
         }
