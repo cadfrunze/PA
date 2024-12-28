@@ -4,31 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using System.Windows.Forms;
+
 
 namespace ticketing_project
 {   
-    internal class DbAcess
+    internal abstract class DbAcess
     {
-        private bool _response; // Vezi User (true = invalid, false = valid)
+  
         private const string connectionString =
             "Data Source=DESKTOP-H2RI6NV\\SQLEXPRESS;Initial Catalog=spectacol;Integrated Security=True";
 
-        //public DbAcess()
-        //{
-        //    Console.WriteLine(Testconn());
-        //}
-        public bool Response
-        {
-            get { return _response; }
-            set { _response = value; }
-        }
-
         public void InsertClient(Dictionary<string, string> UserFinal)
         {   
-            CheckClient(UserFinal);
-            if (Response is false)
-            {
+            
                 string sqlQuery = @"
                                     insert into evidenta_clienti (nume, prenume, cnp, email, telefon)
                                     values (@nume, @prenume, @cnp, @email, @telefon)";
@@ -45,18 +33,18 @@ namespace ticketing_project
                             cmd.Parameters.AddWithValue("@email", UserFinal["email"]);
                             cmd.Parameters.AddWithValue("@telefon", UserFinal["telefon"]);
                             cmd.ExecuteNonQuery();
-                            conn.Close();
-                            Response = false;
+                            
                         }
                     }
                 }
                 catch (Exception ex) { Console.WriteLine(ex.Message); }
-            }
+            
         }
+        
 
-        public void CheckClient(Dictionary<string, string> UserFinal)
+        public List<string> CnpList()
         {
-            Response = false;
+    
             List<string> cnpuri = new List<string>();
             try
             {
@@ -78,20 +66,10 @@ namespace ticketing_project
                 }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
-            foreach (string cnp in cnpuri)
-            {
-                if (cnp == UserFinal["cnp"])
-                {
-                    Response = true;
-                    break;
-                }
-            }
+            return cnpuri;
             
         }
-
-
-
-        bool Testconn()
+        protected bool Testconn()
         {
             try
             {

@@ -7,12 +7,12 @@ using System.Xml.Linq;
 
 namespace ticketing_project
 {
-    internal class User
+    internal class User: DbAcess
     {
-        private DbAcess dbAcess = new DbAcess();
+        
         Dictionary<string, string> regUser = new Dictionary<string, string>();
         private string _name, _prenume, _cnp, _email, _telefon, _serieTicket, _tipTicket;
-        private bool _response; // Strict pt U.I. afisare valid/nevalid messagebox, cu true nevalid
+        
      
         public User() {
             regUser.Add("nume", null);
@@ -49,11 +49,12 @@ namespace ticketing_project
             get { return _email; }
             set { _email = value; }
         }
-        public bool Response
+        public string TipTicket
         {
-            get { return _response; }
-            set { _response = value; }
+            get { return _tipTicket; }
+            set { _tipTicket = value; }
         }
+        
         // final getters & setters
         string GenerareTicket()
         {
@@ -116,8 +117,19 @@ namespace ticketing_project
             _serieTicket = GenerareTicket();
             regUser["serie_ticket"] = _serieTicket.Trim();
             regUser["tip_ticket"] = "sarac";
-            dbAcess.InsertClient(regUser);
-            Response = dbAcess.Response;
+            InsertClient(regUser);
+        }
+        public bool CkeckCnp()
+        {
+            List<string> listaCnp = CnpList();
+            foreach (string data in listaCnp)
+            {
+                if (Cnp == data)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
