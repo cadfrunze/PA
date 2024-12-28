@@ -27,11 +27,12 @@ namespace ticketing_project
             user.Email = emailTfn.Text.ToLower().Trim();
             user.Telefon = telefonTfn.Text.ToString().Trim();
             user.NewUser();
-            Console.WriteLine(user.Response);
+            //Console.WriteLine(user.Response);
             if (user.Response is false)
             {
-                MessageBox.Show("Succes");
+
             }
+            else { MessageBox.Show($"Acest CNP {user.Cnp} exista in baza de date"); }
             
         }
     }

@@ -78,7 +78,6 @@ namespace ticketing_project
                 }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
-            Console.WriteLine(cnpuri.ToString());
             foreach (string cnp in cnpuri)
             {
                 if (cnp == UserFinal["cnp"])
