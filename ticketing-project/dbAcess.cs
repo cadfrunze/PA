@@ -69,6 +69,38 @@ namespace ticketing_project
             return cnpuri;
             
         }
+        public  List<StocBilete> Extrage()
+        {
+            List < StocBilete > stocuri = new List<StocBilete>();
+            
+            int minim = 0;
+            string sqlQuery = @"SELECT tip_ticket, pret, cantitate FROM dbo.stoc_bilete" +
+                               "WHERE cantitate > @minim"+
+                               "ORDER BY DESC;";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sqlQuery,conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string tip_ticket = reader["tip_ticket"].ToString();
+                                int cantitate = Convert.ToInt32(reader["cantitate"]);
+                                int pret = Convert.ToInt32(reader["pret"]);
+                                stocuri.Add(new StocBilete(tip_ticket, cantitate, pret));
+                            }
+                            return stocuri;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex) { Console.WriteLine(ex.Message); }
+            return null;
+        }
         protected bool Testconn()
         {
             try

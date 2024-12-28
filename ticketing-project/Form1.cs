@@ -36,6 +36,7 @@ namespace ticketing_project
                 telefonTfn.Enabled = false;
                 panelFinal.Visible = true;
                 
+                
             }
             else if (user.CkeckCnp() is true) { MessageBox.Show($"Acest CNP {user.Cnp} exista in baza de date"); }
             else { MessageBox.Show("Atentie la completare campuri!"); }
