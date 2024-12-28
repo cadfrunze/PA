@@ -21,12 +21,17 @@ namespace ticketing_project
 
         private void clickNext(object sender, EventArgs e)
         {
-            user.Name = numeTfn.Text.ToLower();
-            user.Prenom = prenumeTfn.Text.ToLower();
-            user.Cnp = cnpTfn.Text;
-            user.Email = emailTfn.Text.ToLower();
-            user.Telefon = telefonTfn.Text;
-            user.Register();
+            user.Name = numeTfn.Text.ToLower().Trim();
+            user.Prenom = prenumeTfn.Text.ToLower().Trim();
+            user.Cnp = cnpTfn.Text.ToString().Trim();
+            user.Email = emailTfn.Text.ToLower().Trim();
+            user.Telefon = telefonTfn.Text.ToString().Trim();
+            user.NewUser();
+            Console.WriteLine(user.Response);
+            if (user.Response is false)
+            {
+                MessageBox.Show("Succes");
+            }
             
         }
     }
