@@ -433,6 +433,7 @@
             // labelMesServer
             // 
             this.labelMesServer.AutoSize = true;
+            this.labelMesServer.BackColor = System.Drawing.Color.Black;
             this.labelMesServer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelMesServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMesServer.ForeColor = System.Drawing.Color.Red;
