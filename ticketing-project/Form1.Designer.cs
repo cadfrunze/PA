@@ -225,12 +225,15 @@
             // comboIteme
             // 
             this.comboIteme.AccessibleName = "comboIteme";
+            this.comboIteme.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboIteme.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboIteme.FormattingEnabled = true;
+            this.comboIteme.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
             this.comboIteme.Location = new System.Drawing.Point(130, 67);
             this.comboIteme.Name = "comboIteme";
             this.comboIteme.Size = new System.Drawing.Size(121, 24);
             this.comboIteme.TabIndex = 1;
-            this.comboIteme.Text = "TIP BILET";
+            this.comboIteme.Text = "TIP TICKET";
             this.comboIteme.SelectedIndexChanged += new System.EventHandler(this.comboIteme_AfisPanou);
             this.comboIteme.Click += new System.EventHandler(this.comboIteme_Click);
             // 
@@ -260,6 +263,7 @@
             // 
             // telefonTfn
             // 
+            this.telefonTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.telefonTfn.Location = new System.Drawing.Point(355, 195);
             this.telefonTfn.Name = "telefonTfn";
             this.telefonTfn.Size = new System.Drawing.Size(198, 22);
@@ -267,6 +271,7 @@
             // 
             // emailTfn
             // 
+            this.emailTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailTfn.Location = new System.Drawing.Point(355, 159);
             this.emailTfn.Name = "emailTfn";
             this.emailTfn.Size = new System.Drawing.Size(198, 22);
@@ -274,6 +279,7 @@
             // 
             // cnpTfn
             // 
+            this.cnpTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cnpTfn.Location = new System.Drawing.Point(355, 124);
             this.cnpTfn.Name = "cnpTfn";
             this.cnpTfn.Size = new System.Drawing.Size(198, 22);
@@ -281,6 +287,7 @@
             // 
             // prenumeTfn
             // 
+            this.prenumeTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.prenumeTfn.Location = new System.Drawing.Point(355, 90);
             this.prenumeTfn.Name = "prenumeTfn";
             this.prenumeTfn.Size = new System.Drawing.Size(198, 22);
@@ -288,6 +295,7 @@
             // 
             // numeTfn
             // 
+            this.numeTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numeTfn.Location = new System.Drawing.Point(355, 56);
             this.numeTfn.Name = "numeTfn";
             this.numeTfn.Size = new System.Drawing.Size(198, 22);

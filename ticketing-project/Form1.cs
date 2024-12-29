@@ -17,8 +17,15 @@ namespace ticketing_project
         private List<StocBilete> stocBiletes;
         public Form1()
         {
+            
             InitializeComponent();
             
+        }
+
+        private string ChangeText
+        {
+            get;
+            set;
         }
 
         private void clickNext(object sender, EventArgs e)
@@ -55,12 +62,13 @@ namespace ticketing_project
             cnpTfn.Enabled = true;
             emailTfn.Enabled = true;
             telefonTfn.Enabled = true;
-            comboIteme.Text = "TIP BILET";
+            ChangeText = "TIP TICKET";
             comboIteme.DisplayMember = comboIteme.Text;
         }
 
         private void comboIteme_Click(object sender, EventArgs e)
         {
+            
             stocBiletes = user.StocuriBilete();
             comboIteme.Items.Clear();
             
