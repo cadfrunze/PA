@@ -57,10 +57,16 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.pictureFacebook = new System.Windows.Forms.PictureBox();
+            this.pictureGithub = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.labelMesServer = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelFinal.SuspendLayout();
             this.pnBilet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFacebook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGithub)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -70,16 +76,19 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(70, 30);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(12, 71);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
             this.tabControl1.Size = new System.Drawing.Size(810, 520);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
@@ -187,6 +196,7 @@
             // btnPayBilet
             // 
             this.btnPayBilet.BackColor = System.Drawing.Color.Cyan;
+            this.btnPayBilet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPayBilet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayBilet.Location = new System.Drawing.Point(56, 95);
             this.btnPayBilet.Name = "btnPayBilet";
@@ -226,9 +236,10 @@
             // 
             this.comboIteme.AccessibleName = "comboIteme";
             this.comboIteme.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboIteme.BackColor = System.Drawing.Color.DarkGray;
             this.comboIteme.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboIteme.FormattingEnabled = true;
-            this.comboIteme.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
+            this.comboIteme.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.comboIteme.Location = new System.Drawing.Point(130, 67);
             this.comboIteme.Name = "comboIteme";
             this.comboIteme.Size = new System.Drawing.Size(121, 24);
@@ -240,6 +251,7 @@
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.Red;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(18, 14);
             this.btnBack.Name = "btnBack";
@@ -252,6 +264,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Cyan;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(192, 253);
             this.button1.Name = "button1";
@@ -353,6 +366,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -363,6 +377,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(802, 482);
@@ -372,6 +387,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(802, 482);
@@ -379,11 +395,64 @@
             this.tabPage4.Text = "Admin";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // pictureFacebook
+            // 
+            this.pictureFacebook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureFacebook.Image = global::ticketing_project.Properties.Resources.icons8_facebook_48;
+            this.pictureFacebook.Location = new System.Drawing.Point(663, 19);
+            this.pictureFacebook.Name = "pictureFacebook";
+            this.pictureFacebook.Size = new System.Drawing.Size(48, 48);
+            this.pictureFacebook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureFacebook.TabIndex = 1;
+            this.pictureFacebook.TabStop = false;
+            this.pictureFacebook.Click += new System.EventHandler(this.pictureFacebook_Click);
+            // 
+            // pictureGithub
+            // 
+            this.pictureGithub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureGithub.Image = global::ticketing_project.Properties.Resources.icons8_github_logo_50;
+            this.pictureGithub.Location = new System.Drawing.Point(734, 17);
+            this.pictureGithub.Name = "pictureGithub";
+            this.pictureGithub.Size = new System.Drawing.Size(50, 50);
+            this.pictureGithub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureGithub.TabIndex = 2;
+            this.pictureGithub.TabStop = false;
+            this.pictureGithub.Click += new System.EventHandler(this.pictureGithub_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(477, 52);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(167, 16);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Powered by CadFrunze";
+            // 
+            // labelMesServer
+            // 
+            this.labelMesServer.AutoSize = true;
+            this.labelMesServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelMesServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMesServer.ForeColor = System.Drawing.Color.Red;
+            this.labelMesServer.Location = new System.Drawing.Point(30, 9);
+            this.labelMesServer.Name = "labelMesServer";
+            this.labelMesServer.Size = new System.Drawing.Size(308, 40);
+            this.labelMesServer.TabIndex = 4;
+            this.labelMesServer.Text = "Serverul baze de date nu raspunde!\r\nClick me 4 Refresh!\r\n";
+            this.labelMesServer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelMesServer.Click += new System.EventHandler(this.labelMesServer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 544);
+            this.ClientSize = new System.Drawing.Size(833, 600);
+            this.Controls.Add(this.labelMesServer);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.pictureGithub);
+            this.Controls.Add(this.pictureFacebook);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Untold Festival ";
@@ -394,7 +463,10 @@
             this.panelFinal.PerformLayout();
             this.pnBilet.ResumeLayout(false);
             this.pnBilet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFacebook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGithub)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -429,6 +501,10 @@
         private System.Windows.Forms.Label lbPret;
         private System.Windows.Forms.Label lbCantitateBilete;
         private System.Windows.Forms.Button btnPayBilet;
+        private System.Windows.Forms.PictureBox pictureFacebook;
+        private System.Windows.Forms.PictureBox pictureGithub;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelMesServer;
     }
 }
 

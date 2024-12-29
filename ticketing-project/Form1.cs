@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,40 @@ namespace ticketing_project
             
             InitializeComponent();
             
+            TestingServer();
+            
+        }
+
+        void TestingServer()
+        {
+            if (user.Testconn())
+            {
+                labelMesServer.Visible = false;
+                tabControl1.Enabled = true;
+            }
+            else
+            {   
+                tabControl1.Enabled = false;
+            }
         }
 
         private string ChangeText
         {
             get;
             set;
+        }
+        void OpenLink(string url)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                }
+                    );
+            }
+            catch { MessageBox.Show("Nu am putut accesa browserul"); }
         }
 
         private void clickNext(object sender, EventArgs e)
@@ -99,6 +128,22 @@ namespace ticketing_project
                 }
             }
             
+        }
+
+        private void pictureFacebook_Click(object sender, EventArgs e)
+        {
+            OpenLink("https://www.facebook.com/cadfrunze/");
+
+        }
+
+        private void pictureGithub_Click(object sender, EventArgs e)
+        {
+            OpenLink("https://github.com/cadfrunze");
+        }
+
+        private void labelMesServer_Click(object sender, EventArgs e)
+        {
+            TestingServer();
         }
     }
 }

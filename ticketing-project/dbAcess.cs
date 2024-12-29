@@ -102,20 +102,18 @@ namespace ticketing_project
             catch(Exception ex) { Console.WriteLine(ex.Message); }
             return stocuri;
         }
-        protected bool Testconn()
+        public bool Testconn()
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    conn.Close();
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{ex.Message}");
                 return false;
             }
             
