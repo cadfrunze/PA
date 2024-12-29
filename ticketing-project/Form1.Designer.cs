@@ -36,6 +36,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panelFinal = new System.Windows.Forms.Panel();
+            this.pnBilet = new System.Windows.Forms.Panel();
+            this.btnPayBilet = new System.Windows.Forms.Button();
+            this.lbCantitateBilete = new System.Windows.Forms.Label();
+            this.lbPret = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboIteme = new System.Windows.Forms.ComboBox();
             this.btnBack = new System.Windows.Forms.Button();
@@ -53,10 +57,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.pnBilet = new System.Windows.Forms.Panel();
-            this.lbPret = new System.Windows.Forms.Label();
-            this.lbCantitateBilete = new System.Windows.Forms.Label();
-            this.btnPayBilet = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelFinal.SuspendLayout();
@@ -173,6 +173,45 @@
             this.panelFinal.TabIndex = 11;
             this.panelFinal.Visible = false;
             // 
+            // pnBilet
+            // 
+            this.pnBilet.Controls.Add(this.btnPayBilet);
+            this.pnBilet.Controls.Add(this.lbCantitateBilete);
+            this.pnBilet.Controls.Add(this.lbPret);
+            this.pnBilet.Location = new System.Drawing.Point(333, 15);
+            this.pnBilet.Name = "pnBilet";
+            this.pnBilet.Size = new System.Drawing.Size(392, 157);
+            this.pnBilet.TabIndex = 3;
+            this.pnBilet.Visible = false;
+            // 
+            // btnPayBilet
+            // 
+            this.btnPayBilet.BackColor = System.Drawing.Color.Cyan;
+            this.btnPayBilet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayBilet.Location = new System.Drawing.Point(56, 95);
+            this.btnPayBilet.Name = "btnPayBilet";
+            this.btnPayBilet.Size = new System.Drawing.Size(299, 39);
+            this.btnPayBilet.TabIndex = 2;
+            this.btnPayBilet.UseVisualStyleBackColor = false;
+            // 
+            // lbCantitateBilete
+            // 
+            this.lbCantitateBilete.AutoSize = true;
+            this.lbCantitateBilete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCantitateBilete.Location = new System.Drawing.Point(170, 30);
+            this.lbCantitateBilete.Name = "lbCantitateBilete";
+            this.lbCantitateBilete.Size = new System.Drawing.Size(0, 20);
+            this.lbCantitateBilete.TabIndex = 1;
+            // 
+            // lbPret
+            // 
+            this.lbPret.AutoSize = true;
+            this.lbPret.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPret.Location = new System.Drawing.Point(18, 30);
+            this.lbPret.Name = "lbPret";
+            this.lbPret.Size = new System.Drawing.Size(0, 20);
+            this.lbPret.TabIndex = 0;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -191,7 +230,8 @@
             this.comboIteme.Name = "comboIteme";
             this.comboIteme.Size = new System.Drawing.Size(121, 24);
             this.comboIteme.TabIndex = 1;
-            this.comboIteme.Text = "Tip Bilet";
+            this.comboIteme.Text = "TIP BILET";
+            this.comboIteme.SelectedIndexChanged += new System.EventHandler(this.comboIteme_AfisPanou);
             this.comboIteme.Click += new System.EventHandler(this.comboIteme_Click);
             // 
             // btnBack
@@ -330,45 +370,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Admin";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // pnBilet
-            // 
-            this.pnBilet.Controls.Add(this.btnPayBilet);
-            this.pnBilet.Controls.Add(this.lbCantitateBilete);
-            this.pnBilet.Controls.Add(this.lbPret);
-            this.pnBilet.Location = new System.Drawing.Point(333, 15);
-            this.pnBilet.Name = "pnBilet";
-            this.pnBilet.Size = new System.Drawing.Size(392, 157);
-            this.pnBilet.TabIndex = 3;
-            this.pnBilet.Visible = false;
-            // 
-            // lbPret
-            // 
-            this.lbPret.AutoSize = true;
-            this.lbPret.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPret.Location = new System.Drawing.Point(18, 30);
-            this.lbPret.Name = "lbPret";
-            this.lbPret.Size = new System.Drawing.Size(0, 20);
-            this.lbPret.TabIndex = 0;
-            // 
-            // lbCantitateBilete
-            // 
-            this.lbCantitateBilete.AutoSize = true;
-            this.lbCantitateBilete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCantitateBilete.Location = new System.Drawing.Point(170, 30);
-            this.lbCantitateBilete.Name = "lbCantitateBilete";
-            this.lbCantitateBilete.Size = new System.Drawing.Size(0, 20);
-            this.lbCantitateBilete.TabIndex = 1;
-            // 
-            // btnPayBilet
-            // 
-            this.btnPayBilet.BackColor = System.Drawing.Color.Cyan;
-            this.btnPayBilet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPayBilet.Location = new System.Drawing.Point(56, 95);
-            this.btnPayBilet.Name = "btnPayBilet";
-            this.btnPayBilet.Size = new System.Drawing.Size(299, 39);
-            this.btnPayBilet.TabIndex = 2;
-            this.btnPayBilet.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 

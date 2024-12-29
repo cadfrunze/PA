@@ -14,9 +14,11 @@ namespace ticketing_project
     public partial class Form1 : Form
     {
         private User user = new User();
+        private List<StocBilete> stocBiletes;
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void clickNext(object sender, EventArgs e)
@@ -53,18 +55,25 @@ namespace ticketing_project
             cnpTfn.Enabled = true;
             emailTfn.Enabled = true;
             telefonTfn.Enabled = true;
+            comboIteme.Text = "TIP BILET";
+            comboIteme.DisplayMember = comboIteme.Text;
         }
 
         private void comboIteme_Click(object sender, EventArgs e)
         {
+            stocBiletes = user.StocuriBilete();
             comboIteme.Items.Clear();
-            comboIteme.DisplayMember = "Tip Bilet";
-            List<StocBilete> stocBiletes = user.StocuriBilete();
-            foreach (var item in stocBiletes)
+            
+            
+            foreach (var item in this.stocBiletes)
             {
                 comboIteme.Items.Add(item.TipTicket.ToUpper());
             }
-            comboIteme.DisplayMember = "Tip Bilet";
+            
+
+        }
+        private void comboIteme_AfisPanou(object sender, EventArgs e)
+        {
             if (comboIteme.Text.ToLower() == "premium" || comboIteme.Text.ToLower() == "mid" || comboIteme.Text.ToLower() == "sarac")
             {
                 foreach (var item in stocBiletes)
@@ -74,10 +83,14 @@ namespace ticketing_project
                         lbPret.Text = $"Pret bilet: {item.Pret}";
                         lbCantitateBilete.Text = $"Nr. bilete ramase: {item.Cantitate}";
                         btnPayBilet.Text = $"Plateste {item.Pret} lei!";
+                        pnBilet.Visible = true;
+                        break;
                     }
-                    pnBilet.Visible = true;
+                    else { pnBilet.Visible = false; }
+                    
                 }
             }
+            
         }
     }
 }
