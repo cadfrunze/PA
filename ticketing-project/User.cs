@@ -131,5 +131,10 @@ namespace ticketing_project
             }
             return false;
         }
+        public List<StocBilete> StocuriBilete()
+        {
+            List<StocBilete> stocuri = ExtrageBilete();
+            return stocuri;
+        }
     }
 }

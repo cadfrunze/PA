@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace ticketing_project
 {
     public partial class Form1 : Form
-    {
+    {   
         private User user = new User();
         public Form1()
         {
@@ -35,6 +35,8 @@ namespace ticketing_project
                 emailTfn.Enabled = false;
                 telefonTfn.Enabled = false;
                 panelFinal.Visible = true;
+                List<StocBilete> stocuriLista = user.StocuriBilete();
+                
                 
                 
             }

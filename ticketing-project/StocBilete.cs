@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ticketing_project
 {
-    internal class StocBilete
+    internal  class StocBilete
     {
         
         public string TipTicket { get; set; }
@@ -18,6 +18,7 @@ namespace ticketing_project
             Cantitate = cantiate;
             Pret = pret;
         }
+
         
 
 

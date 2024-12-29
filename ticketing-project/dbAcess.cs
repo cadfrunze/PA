@@ -69,14 +69,15 @@ namespace ticketing_project
             return cnpuri;
             
         }
-        public  List<StocBilete> Extrage()
+        public  List<StocBilete> ExtrageBilete()
         {
             List < StocBilete > stocuri = new List<StocBilete>();
             
             int minim = 0;
-            string sqlQuery = @"SELECT tip_ticket, pret, cantitate FROM dbo.stoc_bilete" +
-                               "WHERE cantitate > @minim"+
-                               "ORDER BY DESC;";
+            string sqlQuery = @"SELECT tip_ticket, pret, cantitate 
+                                FROM dbo.stoc_bilete 
+                                WHERE cantitate > @minim 
+                                ORDER BY pret DESC;";
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -84,6 +85,7 @@ namespace ticketing_project
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(sqlQuery,conn))
                     {
+                        cmd.Parameters.AddWithValue("@minim", minim);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
@@ -93,13 +95,12 @@ namespace ticketing_project
                                 int pret = Convert.ToInt32(reader["pret"]);
                                 stocuri.Add(new StocBilete(tip_ticket, cantitate, pret));
                             }
-                            return stocuri;
                         }
                     }
                 }
             }
             catch(Exception ex) { Console.WriteLine(ex.Message); }
-            return null;
+            return stocuri;
         }
         protected bool Testconn()
         {
