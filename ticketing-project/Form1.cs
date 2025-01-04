@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -64,6 +65,7 @@ namespace ticketing_project
             user.Cnp = cnpTfn.Text.ToString().Trim();
             user.Email = emailTfn.Text.ToLower().Trim();
             user.Telefon = telefonTfn.Text.ToString().Trim();
+            user.TipTicket = comboIteme.Text.ToLower();
 
             if (user.Name.Length > 2 && user.Prenom.Length > 2 && user.Cnp.Length > 2 && user.CkeckCnp() is false && user.Email.Length > 2)
             {
@@ -73,6 +75,8 @@ namespace ticketing_project
                 emailTfn.Enabled = false;
                 telefonTfn.Enabled = false;
                 panelFinal.Visible = true;
+                comboIteme.DisplayMember = "TIP TICKET!";
+                user.TipTicket = comboIteme.DisplayMember;
 
 
 
@@ -85,14 +89,15 @@ namespace ticketing_project
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            
             panelFinal.Visible = false;
             numeTfn.Enabled = true;
             prenumeTfn.Enabled = true;
             cnpTfn.Enabled = true;
             emailTfn.Enabled = true;
             telefonTfn.Enabled = true;
-            ChangeText = "TIP TICKET";
-            comboIteme.DisplayMember = comboIteme.Text;
+            comboIteme.DisplayMember = "TIP TICKET";
+            user.TipTicket = comboIteme.DisplayMember;
         }
 
         private void comboIteme_Click(object sender, EventArgs e)
@@ -100,13 +105,14 @@ namespace ticketing_project
             
             stocBiletes = user.StocuriBilete();
             comboIteme.Items.Clear();
-            
-            
+
+
             foreach (var item in this.stocBiletes)
             {
                 comboIteme.Items.Add(item.TipTicket.ToUpper());
             }
             
+
 
         }
         private void comboIteme_AfisPanou(object sender, EventArgs e)
@@ -129,6 +135,39 @@ namespace ticketing_project
             }
             
         }
+        
+        private void btnPayBilet_Click(object sender, EventArgs e)
+        {
+            user.TipTicket = comboIteme.Text.ToLower();
+            user.NewUser();
+            user.CkeckCnp();
+            stocBiletes = user.StocuriBilete();
+            comboIteme.Items.Clear();
+            panelFinal.Visible = false;
+            numeTfn.Enabled = true;
+            prenumeTfn.Enabled = true;
+            cnpTfn.Enabled = true;
+            emailTfn.Enabled = true;
+            telefonTfn.Enabled = true;
+            ChangeText = "TIP TICKET";
+            comboIteme.DisplayMember = comboIteme.Text;
+
+            if (user.CkeckCnp() is true)
+            {
+                
+                MessageBox.Show($"User : {user.Name} {user.Prenom} innregistrat cu succes!");
+                labelWait.Visible = false;
+                
+            }
+            else { labelWait.Visible = true; }
+            
+            
+            
+            
+            
+            
+
+        }
 
         private void pictureFacebook_Click(object sender, EventArgs e)
         {
@@ -145,5 +184,7 @@ namespace ticketing_project
         {
             TestingServer();
         }
+
+        
     }
 }

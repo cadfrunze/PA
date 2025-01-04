@@ -61,6 +61,7 @@
             this.pictureGithub = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.labelMesServer = new System.Windows.Forms.Label();
+            this.labelWait = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelFinal.SuspendLayout();
@@ -89,6 +90,7 @@
             // tabPage1
             // 
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.labelWait);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
@@ -203,6 +205,7 @@
             this.btnPayBilet.Size = new System.Drawing.Size(299, 39);
             this.btnPayBilet.TabIndex = 2;
             this.btnPayBilet.UseVisualStyleBackColor = false;
+            this.btnPayBilet.Click += new System.EventHandler(this.btnPayBilet_Click);
             // 
             // lbCantitateBilete
             // 
@@ -445,6 +448,19 @@
             this.labelMesServer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelMesServer.Click += new System.EventHandler(this.labelMesServer_Click);
             // 
+            // labelWait
+            // 
+            this.labelWait.AutoSize = true;
+            this.labelWait.BackColor = System.Drawing.Color.Black;
+            this.labelWait.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWait.ForeColor = System.Drawing.Color.Red;
+            this.labelWait.Location = new System.Drawing.Point(248, 3);
+            this.labelWait.Name = "labelWait";
+            this.labelWait.Size = new System.Drawing.Size(127, 25);
+            this.labelWait.TabIndex = 4;
+            this.labelWait.Text = "Reincearca!";
+            this.labelWait.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -506,6 +522,7 @@
         private System.Windows.Forms.PictureBox pictureGithub;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label labelMesServer;
+        private System.Windows.Forms.Label labelWait;
     }
 }
 

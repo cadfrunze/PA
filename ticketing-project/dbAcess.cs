@@ -17,9 +17,7 @@ namespace ticketing_project
         public void InsertClient(Dictionary<string, string> UserFinal)
         {   
             
-                string sqlQuery = @"
-                                    insert into evidenta_clienti (nume, prenume, cnp, email, telefon)
-                                    values (@nume, @prenume, @cnp, @email, @telefon)";
+                string sqlQuery = "EXEC dbo.NewUser @nume, @prenume, @cnp, @email, @telefon, @tip_ticket, @serie_ticket";
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(connectionString))
@@ -32,6 +30,8 @@ namespace ticketing_project
                             cmd.Parameters.AddWithValue("@cnp", UserFinal["cnp"]);
                             cmd.Parameters.AddWithValue("@email", UserFinal["email"]);
                             cmd.Parameters.AddWithValue("@telefon", UserFinal["telefon"]);
+                            cmd.Parameters.AddWithValue("@tip_ticket", UserFinal["tip_ticket"]);
+                            cmd.Parameters.AddWithValue("@serie_ticket", UserFinal["serie_ticket"]);
                             cmd.ExecuteNonQuery();
                             
                         }

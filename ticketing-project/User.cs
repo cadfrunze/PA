@@ -25,33 +25,33 @@ namespace ticketing_project
         }
         // getter settere pt actualizare din campuri
         public string Name {
-            get { return _name; }
+            get { return _name.Trim(); }
             set { _name = value; }
             
         }
         public string Prenom
         {
-            get { return _prenume; }
+            get { return _prenume.Trim(); }
             set { _prenume = value; }
         }
         public string Cnp
         {
-            get { return _cnp; }
+            get { return _cnp.Trim(); }
             set { _cnp = value; }
         }
         public string Telefon
         {
-            get { return _telefon; }
+            get { return _telefon.Trim(); }
             set { _telefon = value; }
         }
         public string Email
         {
-            get { return _email; }
+            get { return _email.Trim(); }
             set { _email = value; }
         }
         public string TipTicket
         {
-            get { return _tipTicket; }
+            get { return _tipTicket.Trim(); }
             set { _tipTicket = value; }
         }
         
@@ -109,14 +109,14 @@ namespace ticketing_project
         }
         public void NewUser()
         {
-            regUser["nume"] = _name.Trim();
-            regUser["prenume"] = _prenume.Trim();
-            regUser["cnp"] = _cnp.Trim();
-            regUser["email"] = _email.Trim();
-            regUser["telefon"] = _telefon.Trim();
+            regUser["nume"] = Name;
+            regUser["prenume"] = Prenom;
+            regUser["cnp"] = Cnp;
+            regUser["email"] = Email;
+            regUser["telefon"] = Telefon;
             _serieTicket = GenerareTicket();
-            regUser["serie_ticket"] = _serieTicket.Trim();
-            regUser["tip_ticket"] = "sarac";
+            regUser["serie_ticket"] = _serieTicket;
+            regUser["tip_ticket"] = TipTicket;
             InsertClient(regUser);
         }
         public bool CkeckCnp()
