@@ -93,5 +93,8 @@
   <ItemGroup>
     <None Include="ui.pic\icons8-github-logo-50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bonuri\python\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

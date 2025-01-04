@@ -248,8 +248,8 @@
             this.comboIteme.Size = new System.Drawing.Size(121, 24);
             this.comboIteme.TabIndex = 1;
             this.comboIteme.Text = "TIP TICKET";
-            this.comboIteme.SelectedIndexChanged += new System.EventHandler(this.comboIteme_AfisPanou);
-            this.comboIteme.Click += new System.EventHandler(this.comboIteme_Click);
+            //this.comboIteme.SelectedIndexChanged += new System.EventHandler(this.comboIteme_AfisPanou);
+            this.comboIteme.SelectedIndexChanged += new System.EventHandler(this.comboItemeClick);
             // 
             // btnBack
             // 

@@ -75,8 +75,8 @@ namespace ticketing_project
                 emailTfn.Enabled = false;
                 telefonTfn.Enabled = false;
                 panelFinal.Visible = true;
-                comboIteme.DisplayMember = "TIP TICKET!";
-                user.TipTicket = comboIteme.DisplayMember;
+                AfisareBilete();
+
 
 
 
@@ -96,26 +96,24 @@ namespace ticketing_project
             cnpTfn.Enabled = true;
             emailTfn.Enabled = true;
             telefonTfn.Enabled = true;
-            comboIteme.DisplayMember = "TIP TICKET";
-            user.TipTicket = comboIteme.DisplayMember;
+            
         }
 
-        private void comboIteme_Click(object sender, EventArgs e)
+        void  AfisareBilete()
         {
-            
             stocBiletes = user.StocuriBilete();
             comboIteme.Items.Clear();
 
 
-            foreach (var item in this.stocBiletes)
+            foreach (var item in stocBiletes)
             {
                 comboIteme.Items.Add(item.TipTicket.ToUpper());
             }
+
             
 
-
         }
-        private void comboIteme_AfisPanou(object sender, EventArgs e)
+        private void comboItemeClick(object sender, EventArgs e)
         {
             if (comboIteme.Text.ToLower() == "premium" || comboIteme.Text.ToLower() == "mid" || comboIteme.Text.ToLower() == "sarac")
             {
@@ -130,19 +128,19 @@ namespace ticketing_project
                         break;
                     }
                     else { pnBilet.Visible = false; }
-                    
+
                 }
             }
-            
         }
+
+      
         
         private void btnPayBilet_Click(object sender, EventArgs e)
         {
             user.TipTicket = comboIteme.Text.ToLower();
             user.NewUser();
             user.CkeckCnp();
-            stocBiletes = user.StocuriBilete();
-            comboIteme.Items.Clear();
+            
             panelFinal.Visible = false;
             numeTfn.Enabled = true;
             prenumeTfn.Enabled = true;
@@ -160,6 +158,7 @@ namespace ticketing_project
                 
             }
             else { labelWait.Visible = true; }
+            user.TipTicket = ChangeText;
             
             
             
