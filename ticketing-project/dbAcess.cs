@@ -11,8 +11,10 @@ namespace ticketing_project
     internal abstract class DbAcess
     {
   
-        private const string connectionString =
-            "Data Source=DESKTOP-H2RI6NV\\SQLEXPRESS;Initial Catalog=spectacol;Integrated Security=True";
+        private  string connectionString =
+            $"Data Source={Environment.GetEnvironmentVariable("device_name")}\\SQLEXPRESS;Initial Catalog={Environment.GetEnvironmentVariable("data_base_name")};Integrated Security=True";
+        
+        
 
         public void InsertClient(Dictionary<string, string> UserFinal)
         {   

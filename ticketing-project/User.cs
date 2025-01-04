@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -12,6 +15,8 @@ namespace ticketing_project
         
         Dictionary<string, string> regUser = new Dictionary<string, string>();
         private string _name, _prenume, _cnp, _email, _telefon, _serieTicket, _tipTicket;
+        private string interpretor = Environment.GetEnvironmentVariable("interpreter");
+        private string pathScript = Environment.GetEnvironmentVariable("route_script");
         
      
         public User() {
@@ -135,6 +140,31 @@ namespace ticketing_project
         {
             List<StocBilete> stocuri = ExtrageBilete();
             return stocuri;
+        }
+        public void GenerareBon()
+        {
+            ProcessStartInfo processStartInfo = new ProcessStartInfo
+            {
+                FileName = interpretor,
+                Arguments = $"\"{pathScript}\"",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            };
+
+            try
+            {
+                using (Process process = Process.Start(processStartInfo))
+                {
+                    using (StreamReader streamReader = process.StandardOutput)
+                    {
+                        string result = streamReader.ReadToEnd();
+                        Console.WriteLine(result);
+                    }
+                }
+            }
+            catch (Exception  e) { Console.WriteLine(e.Message); }
+
         }
     }
 }

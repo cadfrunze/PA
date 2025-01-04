@@ -159,6 +159,7 @@ namespace ticketing_project
             }
             else { labelWait.Visible = true; }
             user.TipTicket = ChangeText;
+            user.GenerareBon();
             
             
             
