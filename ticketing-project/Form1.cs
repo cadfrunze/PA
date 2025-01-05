@@ -17,6 +17,7 @@ namespace ticketing_project
     {
         private User user = new User();
         private List<StocBilete> stocBiletes;
+        private DateClient dateClient;
         public Form1()
         {
             
@@ -61,7 +62,7 @@ namespace ticketing_project
         private void clickNext(object sender, EventArgs e)
         {
             user.Name = numeTfn.Text.ToLower().Trim();
-            user.Prenom = prenumeTfn.Text.ToLower().Trim();
+            user.Prenom = prenumeTfn.Text.ToLower();
             user.Cnp = cnpTfn.Text.ToString().Trim();
             user.Email = emailTfn.Text.ToLower().Trim();
             user.Telefon = telefonTfn.Text.ToString().Trim();
@@ -153,7 +154,7 @@ namespace ticketing_project
             if (user.CkeckCnp() is true)
             {
                 
-                MessageBox.Show($"User : {user.Name} {user.Prenom} innregistrat cu succes!");
+                MessageBox.Show($"User : {user.Name.ToUpper()} {user.Prenom.ToUpper()} plata efectuata cu succes!");
                 labelWait.Visible = false;
                 
             }
@@ -185,6 +186,45 @@ namespace ticketing_project
             TestingServer();
         }
 
-        
+        private void btnVerAct_Click(object sender, EventArgs e)
+        {
+            if (tb1.Text.Trim().Length < 3 || tb2.Text.Trim().Length < 3 || tb3.Text.Trim().Length < 3 || cnptbCheck.Text.Trim().Length < 3)
+            {
+                MessageBox.Show("ATENTIE LA CAMPURI!");
+            }
+            else
+            {
+                string newSerie = tb1.Text.Trim().ToUpper()+tb2.Text.Trim().ToUpper()+tb3.Text.Trim().ToUpper();
+                
+                dateClient = user.PrelucrareInfo(cnptbCheck.Text.Trim(), newSerie);
+                if (dateClient.Cnp != null && dateClient.SerieTicket != null)
+                {
+                    lbFalse.Visible = false;
+                    panelTrue.Visible = true;
+                    lbNumePrenumeCheck.Text = $"Client: {dateClient.Nume.ToUpper()} {dateClient.Prenume.ToUpper()}";
+                    lbTipicketCheck.Text = $"Tip Ticket: {dateClient.TipTicket.ToUpper()}";
+                    lbCnpCheck.Text = $"CNP: {dateClient.Cnp}";
+                    lbTipicketCheck.Text = $"Tip Ticket: {dateClient.TipTicket.ToUpper()}";
+                    if (dateClient.Validare == "0") 
+                        {
+                        lbStatusCheck.ForeColor = Color.Red;
+                        lbStatusCheck.Text = "STATUS TICKET: NEVALID!";
+                        btnActiveazaCheck.Visible = true;
+                    }
+                    else {
+                        lbStatusCheck.ForeColor = Color.Blue;
+                        lbStatusCheck.Text = "STATUS TICKET: VALID!"; 
+                        }
+                    lbserieTicketCheck.Text = $"Serie Ticket: {dateClient.SerieTicket.ToString()}";
+                    
+
+                }
+                else
+                {
+                    panelTrue.Visible = false;
+                    lbFalse.Visible = true;
+                }
+            }
+        }
     }
 }

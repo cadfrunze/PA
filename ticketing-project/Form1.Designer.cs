@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelWait = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,17 +56,35 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbFalse = new System.Windows.Forms.Label();
+            this.panelTrue = new System.Windows.Forms.Panel();
+            this.lbserieTicketCheck = new System.Windows.Forms.Label();
+            this.btnActiveazaCheck = new System.Windows.Forms.Button();
+            this.lbStatusCheck = new System.Windows.Forms.Label();
+            this.lbCnpCheck = new System.Windows.Forms.Label();
+            this.lbTipicketCheck = new System.Windows.Forms.Label();
+            this.lbNumePrenumeCheck = new System.Windows.Forms.Label();
+            this.btnVerAct = new System.Windows.Forms.Button();
+            this.cnptbCheck = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tb3 = new System.Windows.Forms.TextBox();
+            this.tb2 = new System.Windows.Forms.TextBox();
+            this.tb1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pictureFacebook = new System.Windows.Forms.PictureBox();
             this.pictureGithub = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.labelMesServer = new System.Windows.Forms.Label();
-            this.labelWait = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelFinal.SuspendLayout();
             this.pnBilet.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panelTrue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFacebook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGithub)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +134,19 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Buy ticket!";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // labelWait
+            // 
+            this.labelWait.AutoSize = true;
+            this.labelWait.BackColor = System.Drawing.Color.Black;
+            this.labelWait.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWait.ForeColor = System.Drawing.Color.Red;
+            this.labelWait.Location = new System.Drawing.Point(248, 3);
+            this.labelWait.Name = "labelWait";
+            this.labelWait.Size = new System.Drawing.Size(127, 25);
+            this.labelWait.TabIndex = 4;
+            this.labelWait.Text = "Reincearca!";
+            this.labelWait.Visible = false;
             // 
             // label10
             // 
@@ -248,7 +280,6 @@
             this.comboIteme.Size = new System.Drawing.Size(121, 24);
             this.comboIteme.TabIndex = 1;
             this.comboIteme.Text = "TIP TICKET";
-            //this.comboIteme.SelectedIndexChanged += new System.EventHandler(this.comboIteme_AfisPanou);
             this.comboIteme.SelectedIndexChanged += new System.EventHandler(this.comboItemeClick);
             // 
             // btnBack
@@ -281,6 +312,7 @@
             // 
             this.telefonTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.telefonTfn.Location = new System.Drawing.Point(355, 195);
+            this.telefonTfn.MaxLength = 20;
             this.telefonTfn.Name = "telefonTfn";
             this.telefonTfn.Size = new System.Drawing.Size(198, 22);
             this.telefonTfn.TabIndex = 9;
@@ -289,6 +321,7 @@
             // 
             this.emailTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailTfn.Location = new System.Drawing.Point(355, 159);
+            this.emailTfn.MaxLength = 30;
             this.emailTfn.Name = "emailTfn";
             this.emailTfn.Size = new System.Drawing.Size(198, 22);
             this.emailTfn.TabIndex = 8;
@@ -297,6 +330,7 @@
             // 
             this.cnpTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cnpTfn.Location = new System.Drawing.Point(355, 124);
+            this.cnpTfn.MaxLength = 13;
             this.cnpTfn.Name = "cnpTfn";
             this.cnpTfn.Size = new System.Drawing.Size(198, 22);
             this.cnpTfn.TabIndex = 7;
@@ -305,6 +339,7 @@
             // 
             this.prenumeTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.prenumeTfn.Location = new System.Drawing.Point(355, 90);
+            this.prenumeTfn.MaxLength = 20;
             this.prenumeTfn.Name = "prenumeTfn";
             this.prenumeTfn.Size = new System.Drawing.Size(198, 22);
             this.prenumeTfn.TabIndex = 6;
@@ -313,6 +348,7 @@
             // 
             this.numeTfn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numeTfn.Location = new System.Drawing.Point(355, 56);
+            this.numeTfn.MaxLength = 15;
             this.numeTfn.Name = "numeTfn";
             this.numeTfn.Size = new System.Drawing.Size(198, 22);
             this.numeTfn.TabIndex = 5;
@@ -370,6 +406,17 @@
             // tabPage2
             // 
             this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.lbFalse);
+            this.tabPage2.Controls.Add(this.panelTrue);
+            this.tabPage2.Controls.Add(this.btnVerAct);
+            this.tabPage2.Controls.Add(this.cnptbCheck);
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.tb3);
+            this.tabPage2.Controls.Add(this.tb2);
+            this.tabPage2.Controls.Add(this.tb1);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -377,6 +424,196 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Check!";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lbFalse
+            // 
+            this.lbFalse.AutoSize = true;
+            this.lbFalse.BackColor = System.Drawing.Color.Black;
+            this.lbFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFalse.ForeColor = System.Drawing.Color.Red;
+            this.lbFalse.Location = new System.Drawing.Point(379, 122);
+            this.lbFalse.Name = "lbFalse";
+            this.lbFalse.Size = new System.Drawing.Size(172, 25);
+            this.lbFalse.TabIndex = 11;
+            this.lbFalse.Text = "Utilizator negasit";
+            this.lbFalse.Visible = false;
+            // 
+            // panelTrue
+            // 
+            this.panelTrue.Controls.Add(this.lbserieTicketCheck);
+            this.panelTrue.Controls.Add(this.btnActiveazaCheck);
+            this.panelTrue.Controls.Add(this.lbStatusCheck);
+            this.panelTrue.Controls.Add(this.lbCnpCheck);
+            this.panelTrue.Controls.Add(this.lbTipicketCheck);
+            this.panelTrue.Controls.Add(this.lbNumePrenumeCheck);
+            this.panelTrue.Location = new System.Drawing.Point(16, 192);
+            this.panelTrue.Name = "panelTrue";
+            this.panelTrue.Size = new System.Drawing.Size(781, 245);
+            this.panelTrue.TabIndex = 10;
+            this.panelTrue.Visible = false;
+            // 
+            // lbserieTicketCheck
+            // 
+            this.lbserieTicketCheck.AutoSize = true;
+            this.lbserieTicketCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbserieTicketCheck.Location = new System.Drawing.Point(535, 214);
+            this.lbserieTicketCheck.Name = "lbserieTicketCheck";
+            this.lbserieTicketCheck.Size = new System.Drawing.Size(2, 18);
+            this.lbserieTicketCheck.TabIndex = 5;
+            // 
+            // btnActiveazaCheck
+            // 
+            this.btnActiveazaCheck.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnActiveazaCheck.Location = new System.Drawing.Point(266, 148);
+            this.btnActiveazaCheck.Name = "btnActiveazaCheck";
+            this.btnActiveazaCheck.Size = new System.Drawing.Size(238, 50);
+            this.btnActiveazaCheck.TabIndex = 4;
+            this.btnActiveazaCheck.Text = "ACTIVEAZA!";
+            this.btnActiveazaCheck.UseVisualStyleBackColor = false;
+            this.btnActiveazaCheck.Visible = false;
+            // 
+            // lbStatusCheck
+            // 
+            this.lbStatusCheck.AutoSize = true;
+            this.lbStatusCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbStatusCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatusCheck.Location = new System.Drawing.Point(120, 90);
+            this.lbStatusCheck.Name = "lbStatusCheck";
+            this.lbStatusCheck.Size = new System.Drawing.Size(2, 31);
+            this.lbStatusCheck.TabIndex = 3;
+            // 
+            // lbCnpCheck
+            // 
+            this.lbCnpCheck.AutoSize = true;
+            this.lbCnpCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbCnpCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCnpCheck.Location = new System.Drawing.Point(575, 23);
+            this.lbCnpCheck.Name = "lbCnpCheck";
+            this.lbCnpCheck.Size = new System.Drawing.Size(2, 22);
+            this.lbCnpCheck.TabIndex = 2;
+            // 
+            // lbTipicketCheck
+            // 
+            this.lbTipicketCheck.AutoSize = true;
+            this.lbTipicketCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbTipicketCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTipicketCheck.Location = new System.Drawing.Point(325, 23);
+            this.lbTipicketCheck.Name = "lbTipicketCheck";
+            this.lbTipicketCheck.Size = new System.Drawing.Size(2, 22);
+            this.lbTipicketCheck.TabIndex = 1;
+            // 
+            // lbNumePrenumeCheck
+            // 
+            this.lbNumePrenumeCheck.AutoSize = true;
+            this.lbNumePrenumeCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbNumePrenumeCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumePrenumeCheck.Location = new System.Drawing.Point(17, 23);
+            this.lbNumePrenumeCheck.Name = "lbNumePrenumeCheck";
+            this.lbNumePrenumeCheck.Size = new System.Drawing.Size(2, 22);
+            this.lbNumePrenumeCheck.TabIndex = 0;
+            // 
+            // btnVerAct
+            // 
+            this.btnVerAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnVerAct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerAct.Location = new System.Drawing.Point(360, 60);
+            this.btnVerAct.Name = "btnVerAct";
+            this.btnVerAct.Size = new System.Drawing.Size(221, 47);
+            this.btnVerAct.TabIndex = 5;
+            this.btnVerAct.Text = "Verifica/Activeaza";
+            this.btnVerAct.UseVisualStyleBackColor = false;
+            this.btnVerAct.Click += new System.EventHandler(this.btnVerAct_Click);
+            // 
+            // cnptbCheck
+            // 
+            this.cnptbCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cnptbCheck.Location = new System.Drawing.Point(136, 103);
+            this.cnptbCheck.MaxLength = 13;
+            this.cnptbCheck.Name = "cnptbCheck";
+            this.cnptbCheck.Size = new System.Drawing.Size(168, 22);
+            this.cnptbCheck.TabIndex = 4;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(241, 43);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(20, 25);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "-";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(177, 43);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(20, 25);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "-";
+            // 
+            // tb3
+            // 
+            this.tb3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb3.Location = new System.Drawing.Point(267, 47);
+            this.tb3.MaxLength = 3;
+            this.tb3.Name = "tb3";
+            this.tb3.Size = new System.Drawing.Size(37, 22);
+            this.tb3.TabIndex = 3;
+            // 
+            // tb2
+            // 
+            this.tb2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb2.Location = new System.Drawing.Point(201, 47);
+            this.tb2.MaxLength = 3;
+            this.tb2.Name = "tb2";
+            this.tb2.Size = new System.Drawing.Size(37, 22);
+            this.tb2.TabIndex = 2;
+            // 
+            // tb1
+            // 
+            this.tb1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb1.Location = new System.Drawing.Point(136, 47);
+            this.tb1.MaxLength = 3;
+            this.tb1.Name = "tb1";
+            this.tb1.Size = new System.Drawing.Size(37, 22);
+            this.tb1.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(12, 103);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 20);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "CNP";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(5, 49);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(110, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Serie Ticket";
             // 
             // tabPage3
             // 
@@ -448,19 +685,6 @@
             this.labelMesServer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelMesServer.Click += new System.EventHandler(this.labelMesServer_Click);
             // 
-            // labelWait
-            // 
-            this.labelWait.AutoSize = true;
-            this.labelWait.BackColor = System.Drawing.Color.Black;
-            this.labelWait.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWait.ForeColor = System.Drawing.Color.Red;
-            this.labelWait.Location = new System.Drawing.Point(248, 3);
-            this.labelWait.Name = "labelWait";
-            this.labelWait.Size = new System.Drawing.Size(127, 25);
-            this.labelWait.TabIndex = 4;
-            this.labelWait.Text = "Reincearca!";
-            this.labelWait.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -480,6 +704,10 @@
             this.panelFinal.PerformLayout();
             this.pnBilet.ResumeLayout(false);
             this.pnBilet.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.panelTrue.ResumeLayout(false);
+            this.panelTrue.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFacebook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGithub)).EndInit();
             this.ResumeLayout(false);
@@ -523,6 +751,23 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label labelMesServer;
         private System.Windows.Forms.Label labelWait;
+        private System.Windows.Forms.TextBox tb1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tb3;
+        private System.Windows.Forms.TextBox tb2;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnVerAct;
+        private System.Windows.Forms.TextBox cnptbCheck;
+        private System.Windows.Forms.Panel panelTrue;
+        private System.Windows.Forms.Label lbCnpCheck;
+        private System.Windows.Forms.Label lbTipicketCheck;
+        private System.Windows.Forms.Label lbNumePrenumeCheck;
+        private System.Windows.Forms.Button btnActiveazaCheck;
+        private System.Windows.Forms.Label lbStatusCheck;
+        private System.Windows.Forms.Label lbserieTicketCheck;
+        private System.Windows.Forms.Label lbFalse;
     }
 }
 

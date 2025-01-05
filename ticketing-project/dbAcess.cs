@@ -104,6 +104,86 @@ namespace ticketing_project
             catch(Exception ex) { Console.WriteLine(ex.Message); }
             return stocuri;
         }
+
+        public DateClient DateClient(string cnp, string serie_ticket)
+        {
+            string numeProv = null;
+            string prenProv = null;
+            string cnpProv = null;
+            string tip_ticketProv = null;
+            string serie_ticketProv = null;
+            string validareProv = null;
+            string index = null;
+            string sqlQueryClienti = "SELECT idevidenta_clienti, nume, prenume, cnp FROM dbo.evidenta_clienti WHERE cnp = @cnp";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sqlQueryClienti, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@cnp", cnp);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+
+                                if (reader["cnp"].ToString() == cnp)
+                                {
+                                    numeProv = reader["nume"].ToString();
+                                    prenProv = reader["prenume"].ToString();
+                                    cnpProv = reader["cnp"].ToString();
+                                    index = reader["idevidenta_clienti"].ToString();
+                                    reader.Close();
+                                    string sqlQueryStoc = "SELECT tip_ticket, serie_ticket, validare  FROM dbo.stoc_bilete_cumparate" +
+                                                          " WHERE fk_idevidenta_clienti = @index AND serie_ticket = @serie_ticket";
+
+                                    using (SqlCommand cmd1 = new SqlCommand(sqlQueryStoc, conn))
+                                    {
+                                        cmd1.Parameters.AddWithValue("@index", index);
+                                        cmd1.Parameters.AddWithValue("@serie_ticket", serie_ticket);
+                                        using (SqlDataReader reader1 = cmd1.ExecuteReader())
+                                        {
+                                            if (reader1.Read())
+                                            {
+                                                if (reader1["serie_ticket"].ToString() == serie_ticket)
+                                                {
+                                                    serie_ticketProv = reader1["serie_ticket"].ToString();
+                                                    tip_ticketProv = reader1["tip_ticket"].ToString();
+                                                    validareProv = reader1["validare"].ToString();
+
+                                                    
+                                                }
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        }
+
+
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return new DateClient
+            {
+                Nume = numeProv,
+                Prenume = prenProv,
+                Cnp = cnpProv,
+                SerieTicket = serie_ticketProv,
+                TipTicket = tip_ticketProv,
+                Validare = validareProv
+            };
+        }
+
         public bool Testconn()
         {
             try

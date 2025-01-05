@@ -1,6 +1,6 @@
-import shutil
+
 import time
-from typing import overload
+
 
 from qrcode import QRCode
 from qrcode.constants import ERROR_CORRECT_L

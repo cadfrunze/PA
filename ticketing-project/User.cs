@@ -10,16 +10,17 @@ using System.Xml.Linq;
 
 namespace ticketing_project
 {
-    internal class User: DbAcess
+    internal class User : DbAcess
     {
-        
+
         Dictionary<string, string> regUser = new Dictionary<string, string>();
         private string _name, _prenume, _cnp, _email, _telefon, _serieTicket, _tipTicket;
         private string interpretor = Environment.GetEnvironmentVariable("interpreter");
         private string pathScript = Environment.GetEnvironmentVariable("route_script");
-        
-     
-        public User() {
+
+
+        public User()
+        {
             regUser.Add("nume", null);
             regUser.Add("prenume", null);
             regUser.Add("cnp", null);
@@ -29,10 +30,11 @@ namespace ticketing_project
             regUser.Add("tip_ticket", null);
         }
         // getter settere pt actualizare din campuri
-        public string Name {
+        public string Name
+        {
             get { return _name.Trim(); }
             set { _name = value; }
-            
+
         }
         public string Prenom
         {
@@ -59,7 +61,7 @@ namespace ticketing_project
             get { return _tipTicket.Trim(); }
             set { _tipTicket = value; }
         }
-        
+
         // final getters & setters
         string GenerareTicket()
         {
@@ -68,7 +70,7 @@ namespace ticketing_project
 
             Random randomStart = new Random();
             int num = randomStart.Next(0, 2);
-            
+
             if (num == 0)
             {
                 while (true)
@@ -163,8 +165,23 @@ namespace ticketing_project
                     }
                 }
             }
-            catch (Exception  e) { Console.WriteLine(e.Message); }
+            catch (Exception e) { Console.WriteLine(e.Message); }
 
         }
+        public DateClient PrelucrareInfo(string cnp, string serie)
+        {
+            
+            string newSerie = "";
+            for (int i = 0; i < serie.Length; i++)
+            {
+                if (i == 3 || i == 6)
+                {
+                    newSerie = newSerie + "-";
+                }
+                newSerie = newSerie + serie[i];
+            }
+            return DateClient(cnp, newSerie);
+        }
+        
     }
 }
