@@ -7,46 +7,53 @@ using System.Data.SqlClient;
 
 
 namespace ticketing_project
-{   
+{
     internal abstract class DbAcess
     {
-  
-        private  string connectionString =
+        private string numeProv = null;
+        private string prenProv = null;
+        private string cnpProv = null;
+        private string tip_ticketProv = null;
+        private string serie_ticketProv = null;
+        private string validareProv = null;
+        private string index = null;
+
+        private string connectionString =
             $"Data Source={Environment.GetEnvironmentVariable("device_name")}\\SQLEXPRESS;Initial Catalog={Environment.GetEnvironmentVariable("data_base_name")};Integrated Security=True";
-        
-        
+
+
 
         public void InsertClient(Dictionary<string, string> UserFinal)
-        {   
-            
-                string sqlQuery = "EXEC dbo.NewUser @nume, @prenume, @cnp, @email, @telefon, @tip_ticket, @serie_ticket";
-                try
+        {
+
+            string sqlQuery = "EXEC dbo.NewUser @nume, @prenume, @cnp, @email, @telefon, @tip_ticket, @serie_ticket";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                     {
-                        conn.Open();
-                        using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@nume", UserFinal["nume"]);
-                            cmd.Parameters.AddWithValue("@prenume", UserFinal["prenume"]);
-                            cmd.Parameters.AddWithValue("@cnp", UserFinal["cnp"]);
-                            cmd.Parameters.AddWithValue("@email", UserFinal["email"]);
-                            cmd.Parameters.AddWithValue("@telefon", UserFinal["telefon"]);
-                            cmd.Parameters.AddWithValue("@tip_ticket", UserFinal["tip_ticket"]);
-                            cmd.Parameters.AddWithValue("@serie_ticket", UserFinal["serie_ticket"]);
-                            cmd.ExecuteNonQuery();
-                            
-                        }
+                        cmd.Parameters.AddWithValue("@nume", UserFinal["nume"]);
+                        cmd.Parameters.AddWithValue("@prenume", UserFinal["prenume"]);
+                        cmd.Parameters.AddWithValue("@cnp", UserFinal["cnp"]);
+                        cmd.Parameters.AddWithValue("@email", UserFinal["email"]);
+                        cmd.Parameters.AddWithValue("@telefon", UserFinal["telefon"]);
+                        cmd.Parameters.AddWithValue("@tip_ticket", UserFinal["tip_ticket"]);
+                        cmd.Parameters.AddWithValue("@serie_ticket", UserFinal["serie_ticket"]);
+                        cmd.ExecuteNonQuery();
+
                     }
                 }
-                catch (Exception ex) { Console.WriteLine(ex.Message); }
-            
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+
         }
-        
+
 
         public List<string> CnpList()
         {
-    
+
             List<string> cnpuri = new List<string>();
             try
             {
@@ -56,7 +63,7 @@ namespace ticketing_project
                     string sqlCommand = "select cnp from evidenta_clienti";
                     using (SqlCommand cmd = new SqlCommand(sqlCommand, conn))
                     {
-                        using (SqlDataReader  rdr = cmd.ExecuteReader())
+                        using (SqlDataReader rdr = cmd.ExecuteReader())
                         {
                             while (rdr.Read())
                             {
@@ -64,17 +71,17 @@ namespace ticketing_project
                             }
                         }
                     }
-                    
+
                 }
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             return cnpuri;
-            
+
         }
-        public  List<StocBilete> ExtrageBilete()
+        public List<StocBilete> ExtrageBilete()
         {
-            List < StocBilete > stocuri = new List<StocBilete>();
-            
+            List<StocBilete> stocuri = new List<StocBilete>();
+
             int minim = 0;
             string sqlQuery = @"SELECT tip_ticket, pret, cantitate 
                                 FROM dbo.stoc_bilete 
@@ -85,7 +92,7 @@ namespace ticketing_project
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(sqlQuery,conn))
+                    using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@minim", minim);
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -101,19 +108,13 @@ namespace ticketing_project
                     }
                 }
             }
-            catch(Exception ex) { Console.WriteLine(ex.Message); }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
             return stocuri;
         }
 
-        public DateClient DateClient(string cnp, string serie_ticket)
+        public DateClient DateClientBilet(string cnp, string serie_ticket)
         {
-            string numeProv = null;
-            string prenProv = null;
-            string cnpProv = null;
-            string tip_ticketProv = null;
-            string serie_ticketProv = null;
-            string validareProv = null;
-            string index = null;
+
             string sqlQueryClienti = "SELECT idevidenta_clienti, nume, prenume, cnp FROM dbo.evidenta_clienti WHERE cnp = @cnp";
             try
             {
@@ -152,16 +153,15 @@ namespace ticketing_project
                                                     tip_ticketProv = reader1["tip_ticket"].ToString();
                                                     validareProv = reader1["validare"].ToString();
 
-                                                    
+
                                                 }
                                             }
-
+                                            else { serie_ticketProv = null; }
                                         }
-
                                     }
-
                                 }
                             }
+                            else { cnpProv = null; }
                         }
 
 
@@ -173,6 +173,47 @@ namespace ticketing_project
             {
                 Console.WriteLine(e.Message);
             }
+            return new DateClient
+            {
+                Nume = numeProv,
+                Prenume = prenProv,
+                Cnp = cnpProv,
+                SerieTicket = serie_ticketProv,
+                TipTicket = tip_ticketProv,
+                Validare = validareProv
+            };
+        }
+        public DateClient ValidareTicket(string serieTicket)
+        {
+            string sqlQuery = "Exec dbo.Validare @serie_ticket";
+            string sqlQuery1 = "SELECT validare from dbo.stoc_bilete_cumparate WHERE serie_ticket = @serie_ticket";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@serie_ticket", serieTicket);
+                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd1 = new SqlCommand(sqlQuery1, conn))
+                        {
+                            cmd1.Parameters.AddWithValue("@serie_ticket", serieTicket);
+                            using (SqlDataReader reader = cmd1.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    validareProv = reader["validare"].ToString();
+                                }
+
+                            }
+                        }
+
+
+                    }
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
             return new DateClient
             {
                 Nume = numeProv,
@@ -198,7 +239,7 @@ namespace ticketing_project
             {
                 return false;
             }
-            
+
         }
     }
 }

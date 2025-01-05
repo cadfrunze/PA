@@ -226,5 +226,18 @@ namespace ticketing_project
                 }
             }
         }
+
+        private void btnActiveazaCheck_Click(object sender, EventArgs e)
+        {
+            string newSerie = tb1.Text.Trim().ToUpper() + tb2.Text.Trim().ToUpper() + tb3.Text.Trim().ToUpper();
+            dateClient = user.PrelucareInfoValidare(newSerie);
+            if (dateClient.Validare == "1")
+            {
+                lbStatusCheck.ForeColor = Color.Blue;
+                lbStatusCheck.Text = "STATUS TICKET: VALID!";
+                btnActiveazaCheck.Visible = false;
+
+            }
+        }
     }
 }

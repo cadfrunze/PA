@@ -180,7 +180,21 @@ namespace ticketing_project
                 }
                 newSerie = newSerie + serie[i];
             }
-            return DateClient(cnp, newSerie);
+            return DateClientBilet(cnp, newSerie);
+        }
+
+        public DateClient PrelucareInfoValidare(string serie_ticket)
+        {
+            string newSerie = "";
+            for (int i = 0; i < serie_ticket.Length; i++)
+            {
+                if (i == 3 || i == 6)
+                {
+                    newSerie = newSerie + "-";
+                }
+                newSerie = newSerie + serie_ticket[i];
+            }
+            return ValidareTicket(newSerie);
         }
         
     }

@@ -471,6 +471,7 @@
             this.btnActiveazaCheck.Text = "ACTIVEAZA!";
             this.btnActiveazaCheck.UseVisualStyleBackColor = false;
             this.btnActiveazaCheck.Visible = false;
+            this.btnActiveazaCheck.Click += new System.EventHandler(this.btnActiveazaCheck_Click);
             // 
             // lbStatusCheck
             // 
@@ -497,7 +498,7 @@
             this.lbTipicketCheck.AutoSize = true;
             this.lbTipicketCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbTipicketCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTipicketCheck.Location = new System.Drawing.Point(325, 23);
+            this.lbTipicketCheck.Location = new System.Drawing.Point(341, 23);
             this.lbTipicketCheck.Name = "lbTipicketCheck";
             this.lbTipicketCheck.Size = new System.Drawing.Size(2, 22);
             this.lbTipicketCheck.TabIndex = 1;
