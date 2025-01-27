@@ -109,10 +109,10 @@ namespace ticketing_project
         {
             this.stocBilete = this.srv.StocuriBilete();
             comboIteme.Items.Clear();
-            //foreach(var item in this.stocBilete)
-            //{
-            //    Console.WriteLine(item.Cantitate);
-            //}
+            foreach(var item in this.stocBilete)
+            {
+                Console.WriteLine(item.Cantitate);
+            }
 
 
             foreach (var item in this.stocBilete)

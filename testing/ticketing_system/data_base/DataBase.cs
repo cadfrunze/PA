@@ -1,23 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using ticketing_system.modell;
 
-
-namespace ticketing_project
+namespace ticketing_system.data_base
 {
-    internal abstract class DbAcess
+    internal class DataBase
     {
-        private string numeProv = null;
-        private string prenProv = null;
-        private string cnpProv = null;
-        private string tip_ticketProv = null;
-        private string serie_ticketProv = null;
-        private string validareProv = null;
-        private string index = null;
-
         private string connectionString =
             $"Data Source={Environment.GetEnvironmentVariable("device_name")}\\SQLEXPRESS;Initial Catalog={Environment.GetEnvironmentVariable("data_base_name")};Integrated Security=True";
 
@@ -51,7 +44,7 @@ namespace ticketing_project
         }
 
 
-        public List<string> CnpList()
+        public List<string> ExtractCnp()
         {
 
             List<string> cnpuri = new List<string>();
@@ -225,7 +218,7 @@ namespace ticketing_project
             };
         }
 
-        public bool Testconn()
+        public bool TestConnection()
         {
             try
             {
@@ -243,6 +236,3 @@ namespace ticketing_project
         }
     }
 }
-
-        
-     

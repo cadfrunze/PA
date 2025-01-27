@@ -17,6 +17,11 @@ namespace ticketing_project
         public string TipTicket { get; set; }
         public string Validare { get; set; }
 
+        public string Email {  get; set; }
+        public string Telefon { get; set; }
+
+        public int Index { get; set; }
+
         //public DateClient(string nume, string prenume, string cnp, string serie_ticket, string tip_ticket, string validare)
         //{   
         //    Nume = nume;
