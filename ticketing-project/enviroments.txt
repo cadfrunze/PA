@@ -1,2 +1,4 @@
 data_base_name=spectacol
 device_name=DESKTOP-H2RI6NV
+interpreter=D:\C# projects\PA\ticketing-project\bonuri\python\.venv\Scripts\python.exe
+route_script=D:\C# projects\PA\ticketing-project\bonuri\python\main.py
